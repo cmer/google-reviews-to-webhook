@@ -1,0 +1,41 @@
+# google-reviews-to-webhook configuration.
+# Copy to config.toml and fill in the REPLACE values. config.toml holds secrets: never commit it.
+# Every setting lives under a [section] header. Changes are picked up automatically by
+# --watch and Docker (within a few seconds), and on the next run with cron.
+
+[general]
+timezone = "America/Toronto"   # IANA timezone used for {date}
+pollIntervalMinutes = 60       # how often --watch / Docker checks; fractions OK. Cron ignores this
+stateFile = "./state.json"     # remembers which reviews were already sent; relative to this file
+
+[google]
+# OAuth client of type "Desktop app" (README, step 2).
+clientId = "REPLACE-WITH-OAUTH-CLIENT-ID.apps.googleusercontent.com"
+clientSecret = "REPLACE-WITH-OAUTH-CLIENT-SECRET"
+refreshToken = ""              # filled in by `npm run auth`
+
+# One [[locations]] section per business to watch. Keep IDs in quotes.
+[[locations]]
+accountId = "117829878635658949838"
+locationId = "12640715728192214038"
+name = "Our Business"                              # shown as {locationName}
+replyUrl = "https://business.google.com/reviews"   # the "Reply on Google" link
+
+# One [[destinations]] section per place reviews are sent. A review goes to every
+# destination whose filters it passes; a destination without filters gets every review.
+
+# Every new review goes to #office-notifications.
+[[destinations]]
+name = "office-notifications"
+type = "slack"
+url = "https://hooks.slack.com/services/REPLACE/WITH/OFFICE-NOTIFICATIONS-WEBHOOK"
+
+# Only 4 and 5-star reviews go to #general.
+[[destinations]]
+name = "general"
+type = "slack"
+url = "https://hooks.slack.com/services/REPLACE/WITH/GENERAL-WEBHOOK"
+
+  # Filters come last in a destination: every key below this header belongs to the filters.
+  [destinations.filters]
+  minRating = 4

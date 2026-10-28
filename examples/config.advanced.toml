@@ -1,0 +1,69 @@
+# Every option in use. See README.md for what each one does.
+
+[general]
+timezone = "America/Toronto"
+pollIntervalMinutes = 15
+
+[google]
+clientId = "REPLACE-WITH-OAUTH-CLIENT-ID.apps.googleusercontent.com"
+clientSecret = "REPLACE-WITH-OAUTH-CLIENT-SECRET"
+refreshToken = ""
+
+[[locations]]
+accountId = "117829878635658949838"
+locationId = "12640715728192214038"
+name = "Our Business"
+
+# Rich Slack layout with a colored side bar.
+[[destinations]]
+name = "office-notifications"
+type = "slack"
+url = "https://hooks.slack.com/services/REPLACE/ME/1"
+format = "blocks"
+color = true
+
+# Custom text, only positive reviews that say something, skipping any that mention staff by name.
+[[destinations]]
+name = "general"
+type = "slack"
+url = "https://hooks.slack.com/services/REPLACE/ME/2"
+template = '''
+{stars} {name}:
+"{comment}"'''
+
+  [destinations.filters]
+  minRating = 4
+  requireComment = true
+  excludeKeywords = ["Marc", "Julie"]
+
+# Bad reviews, with a custom Block Kit layout.
+[[destinations]]
+name = "complaints"
+type = "slack"
+url = "https://hooks.slack.com/services/REPLACE/ME/3"
+format = "blocks"
+blocksTemplate = "./blocks-template.json"
+
+  [destinations.filters]
+  maxRating = 2
+
+# CRM: only reviews that mention one of these words, in the CRM's own JSON shape, signed.
+[[destinations]]
+name = "crm"
+type = "webhook"
+url = "https://crm.example.com/hooks/reviews"
+payloadTemplate = "./payload-template.json"
+signingSecret = "REPLACE-WITH-SHARED-SECRET"
+
+  [destinations.headers]
+  Authorization = "Bearer REPLACE-WITH-TOKEN"
+
+  [destinations.filters]
+  includeKeywords = ["refund", "rude", "wait", "waiting"]
+
+# Data warehouse: every review, including Google's original object.
+[[destinations]]
+name = "data-warehouse"
+type = "webhook"
+url = "https://ingest.example.com/google-reviews"
+includeRaw = true

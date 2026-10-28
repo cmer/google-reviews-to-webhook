@@ -1,0 +1,6 @@
+.auth-pending.json
+.sc/
+config.toml
+node_modules/
+state.json
+state.json.tmp

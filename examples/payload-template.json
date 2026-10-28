@@ -1,0 +1,11 @@
+{
+  "type": "google_review",
+  "title": "{name} left {rating} stars",
+  "rating": "{rating}",
+  "body": "{comment}",
+  "link": "{replyUrl}",
+  "receivedAt": "{createTime}",
+  "meta": { "location": "{locationName}", "average": "{averageRating}" },
+  "review": "{{review}}",
+  "original": "{{raw}}"
+}

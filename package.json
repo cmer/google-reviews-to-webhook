@@ -1,0 +1,26 @@
+{
+  "name": "google-reviews-to-webhook",
+  "version": "0.1.0",
+  "description": "Poll Google Business Profile for new reviews and send them to Slack or any HTTP endpoint.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cmer/google-reviews-to-webhook.git"
+  },
+  "type": "module",
+  "main": "src/index.js",
+  "private": true,
+  "engines": {
+    "node": ">=20.12"
+  },
+  "scripts": {
+    "start": "node src/index.js",
+    "watch": "node src/index.js --watch",
+    "dry-run": "node src/index.js --dry-run",
+    "auth": "node scripts/auth.js",
+    "test": "node --test"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "smol-toml": "^1.9.1"
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "reviews": [
+    {
+      "name": "accounts/117829878635658949838/locations/12640715728192214038/reviews/rev-five",
+      "reviewId": "rev-five",
+      "reviewer": {
+        "profilePhotoUrl": "https://lh3.googleusercontent.com/a/photo-five=s120-c",
+        "displayName": "Marie Tremblay"
+      },
+      "starRating": "FIVE",
+      "comment": "Excellent service!\nWill come back.",
+      "createTime": "2026-10-27T18:30:00.000Z",
+      "updateTime": "2026-10-27T18:30:00.000Z"
+    },
+    {
+      "name": "accounts/117829878635658949838/locations/12640715728192214038/reviews/rev-three",
+      "reviewId": "rev-three",
+      "reviewer": { "isAnonymous": true },
+      "starRating": "THREE",
+      "createTime": "2026-10-26T12:00:00.000Z",
+      "updateTime": "2026-10-26T12:00:00.000Z"
+    },
+    {
+      "name": "accounts/117829878635658949838/locations/12640715728192214038/reviews/rev-one",
+      "reviewId": "rev-one",
+      "reviewer": { "displayName": "Bob <script>", "profilePhotoUrl": "//lh3.googleusercontent.com/a/photo-one" },
+      "starRating": "ONE",
+      "comment": "Long wait & rude staff. <b>Never again</b>",
+      "createTime": "2026-10-25T09:15:00.000Z",
+      "updateTime": "2026-10-25T10:00:00.000Z",
+      "reviewReply": { "comment": "Sorry to hear that.", "updateTime": "2026-10-25T11:00:00.000Z" }
+    },
+    {
+      "name": "accounts/117829878635658949838/locations/12640715728192214038/reviews/rev-four",
+      "reviewId": "rev-four",
+      "reviewer": { "displayName": "Sam Lee" },
+      "starRating": "FOUR",
+      "comment": "Good, but parking is a REFUND-worthy nightmare.",
+      "createTime": "2026-10-20T15:45:00.000Z",
+      "updateTime": "2026-10-20T15:45:00.000Z"
+    }
+  ],
+  "averageRating": 4.6,
+  "totalReviewCount": 212,
+  "nextPageToken": "page-2"
+}

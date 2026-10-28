@@ -1,0 +1,14 @@
+[
+  {
+    "type": "header",
+    "text": { "type": "plain_text", "text": "{rating}-star review from {name}" }
+  },
+  {
+    "type": "section",
+    "text": { "type": "mrkdwn", "text": "{stars}\n{comment}" }
+  },
+  {
+    "type": "context",
+    "elements": [{ "type": "mrkdwn", "text": "{locationName} · {date} · <{replyUrl}|Reply on Google>" }]
+  }
+]
