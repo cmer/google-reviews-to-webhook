@@ -1,0 +1,7 @@
+services:
+  google-reviews:
+    build: .
+    restart: unless-stopped
+    volumes:
+      # The project folder: config.toml, any template files it references, and state.json.
+      - ./:/config
